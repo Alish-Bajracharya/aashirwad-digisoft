@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-wavy {
+  background: radial-gradient(circle at 25% 25%, #d6ecff, transparent 30%),
+              radial-gradient(circle at 75% 75%, #e0f7fa, transparent 30%);
+  background-size: 100% 100%;
+  animation: moveBackground 20s ease infinite;
+}
+
+@keyframes moveBackground {
+  0%, 100% {
+    background-position: 25% 25%, 75% 75%;
+  }
+  50% {
+    background-position: 30% 30%, 70% 70%;
+  }
+}
