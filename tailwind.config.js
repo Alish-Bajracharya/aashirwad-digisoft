@@ -10,7 +10,7 @@ theme: {
       'spin-slow': 'spin 60s linear infinite',
     },
     fontFamily: {
-      sans: ['Work Sans', 'sans-serif'],
+      sans: ["'Playfair Display'", "serif"],
     },
     colors: {
       primary: "#1E293B",
