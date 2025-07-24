@@ -70,7 +70,7 @@ export default function HeroSection() {
         <p className="text-sm uppercase tracking-[3px] font-[Roboto] text-white/80">
           Your Home Away from Home
         </p>
-        <h1 className="text-[40px] sm:text-[50px] md:text-[64px] lg:text-[72px] mt-6 font-normal tracking-wider leading-normal">
+        <h1 className="text-[40px] sm:text-[50px] md:text-[64px] lg:text-[82px] mt-6 font-normal tracking-wider leading-normal">
           Experience Unparalleled <br /> Comfort & Serenity
         </h1>
       </motion.div>

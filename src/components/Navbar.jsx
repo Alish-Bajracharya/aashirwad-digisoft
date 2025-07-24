@@ -1,5 +1,3 @@
-// components/Navbar.jsx
-
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaPhoneAlt } from "react-icons/fa";
@@ -12,7 +10,6 @@ const Navbar = () => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // Scroll hide/show logic
   useEffect(() => {
     const handleScroll = () => {
       const currentScroll = window.scrollY;
@@ -30,15 +27,16 @@ const Navbar = () => {
         initial={{ y: 0 }}
         animate={{ y: showNav ? 0 : -100 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="fixed top-0 left-0 w-full z-50 px-6 md:px-12 lg:px-20 py-6 border-b text-white transition-all duration-500"
+        className={`fixed top-0 left-0 w-full z-50 px-6 md:px-8 py-4 border-b text-white transition-all duration-500 ${
+          showNav ? "bg-[#122223]" : ""
+        }`}
       >
-        <div className="flex justify-between items-center w-full">
+        <div className="flex justify-between items-center w-full flex-wrap gap-y-4 md:gap-y-0">
           {/* HAMBURGER + PHONE */}
           <button
             onClick={toggleMenu}
             className="flex items-center gap-3 text-sm font-semibold uppercase tracking-widest"
           >
-            {/* Custom 2-line Hamburger */}
             <div className="flex flex-col gap-[6px]">
               <span className="block w-6 h-[2px] bg-white"></span>
               <span className="block w-4 h-[2px] bg-white"></span>
@@ -51,7 +49,7 @@ const Navbar = () => {
           </button>
 
           {/* BRAND */}
-          <div className="text-center leading-tight">
+          <div className="text-center w-full md:w-auto md:text-center leading-tight">
             <h1 className="text-xl md:text-2xl font-serif uppercase tracking-[0.15em]">
               Hotel Aashirwad
             </h1>
@@ -59,7 +57,7 @@ const Navbar = () => {
           </div>
 
           {/* RIGHT: LANG + BOOK */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <div className="flex items-center gap-1">
               <span>EN</span>
               <ChevronDown size={14} />
@@ -80,7 +78,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[999] flex flex-col md:flex-row"
           >
-            {/* LEFT (75%) with IMAGE */}
+            {/* LEFT SECTION */}
             <motion.div
               initial={{ y: "-100%" }}
               animate={{ y: 0 }}
@@ -100,7 +98,7 @@ const Navbar = () => {
                 <FaTimes className="text-lg" /> Close
               </button>
 
-              <ul className="space-y-8 text-3xl md:text-5xl font-serif tracking-wide mt-20">
+              <ul className="space-y-6 md:space-y-8 text-3xl md:text-5xl font-serif tracking-wide mt-20">
                 {["Home", "Rooms", "Booking", "Pages", "Blog", "Contact"].map(
                   (item) => (
                     <li key={item}>
@@ -113,39 +111,56 @@ const Navbar = () => {
               </ul>
             </motion.div>
 
-            {/* RIGHT (25%) */}
+            {/* RIGHT SECTION */}
             <motion.div
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="md:w-[40%] w-full bg-[#fce0c6] px-10 py-10 flex flex-col justify-center text-center font-serif text-[#1a1a1a] space-y-6"
+              className="md:w-[40%] w-full bg-[#fce0c6] px-6 md:px-10 py-10 flex flex-col justify-center text-center font-serif text-[#1a1a1a] space-y-6"
             >
               <h2 className="text-lg font-semibold tracking-widest py-5">
-                Hotel Aashirwad Pokhara <br/>
-                <span className="text-sm font-normal tracking-widest">Luxury Hotel</span>
+                Hotel Aashirwad Pokhara <br />
+                <span className="text-sm font-normal tracking-widest">
+                  Luxury Hotel
+                </span>
               </h2>
-              <h3 className="text-4xl py-5">Hotel & Spa Senery <br/>Resort</h3>
+              <h3 className="text-4xl py-5">
+                Hotel & Spa Senery <br />
+                Resort
+              </h3>
 
               <div>
                 <h4 className="text-2xl font-medium py-2">Location</h4>
                 <p className="text-lg mt-1">
-                  Lakeside, Pokhara 33700<br />Nepal
+                  Lakeside, Pokhara 33700
+                  <br />
+                  Nepal
                 </p>
               </div>
 
               <div>
                 <h4 className="text-xl font-medium py-2">Phone Support</h4>
-                <p className="text-lg mt-1" >
-                    <a href="telno:+977 9841234567" className="hover:text-gray-600">+977 9841234567</a>
+                <p className="text-lg mt-1">
+                  <a
+                    href="tel:+9779841234567"
+                    className="hover:text-gray-600"
+                  >
+                    +977 9841234567
+                  </a>
                   <br />
-                  <a href="mailto:info@aashirwadhotel.com" className="hover:text-gray-600">info@aashirwadhotel.com</a>
+                  <a
+                    href="mailto:info@aashirwadhotel.com"
+                    className="hover:text-gray-600"
+                  >
+                    info@aashirwadhotel.com
+                  </a>
                 </p>
               </div>
 
               <div>
                 <h4 className="text-xl font-medium">Connect With Us</h4>
-                <p className="text-sm mt-1">WhatsApp: +977 9841234567</p>
+                <p className="text-sm mt-1">WhatsApp: +977</p>
               </div>
             </motion.div>
           </motion.div>
